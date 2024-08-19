@@ -17,7 +17,7 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Hello</ThemedText>
+        <ThemedText type="title">Transform Your Ride with Ambient Glow!</ThemedText>
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
