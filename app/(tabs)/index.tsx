@@ -1,4 +1,6 @@
-import { Image, StyleSheet, Platform, View } from 'react-native';
+import React from 'react';
+import { Image, StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient'; // Import LinearGradient
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -21,9 +23,19 @@ export default function HomeScreen() {
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText style={styles.bodyText}>
-        Experience a new level of driving comfort with customizable ambient lighting that matches your mood.
+          Experience a new level of driving comfort with customizable ambient lighting that matches your mood.
         </ThemedText>
       </ThemedView>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button} onPress={() => alert('Button Pressed')}>
+          <LinearGradient
+            colors={['#37B6E9', '#4B4CED']} // Gradient colors
+            style={styles.gradient}
+          >
+            <Text style={styles.buttonText}>Explore</Text>
+          </LinearGradient>
+        </TouchableOpacity>
+      </View>
     </ParallaxScrollView>
   );
 }
@@ -45,20 +57,36 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     left: 0,
-    top:0,
+    top: 0,
   },
   heading: {
     fontSize: 24, // Adjust as needed
     fontWeight: 'bold',
-    color: '#003366', // Dark blue color
+    color: '#ffffff', // Dark blue color
     textAlign: 'center',
   },
   bodyText: {
-    fontSize: 16, // Adjust as needed
-    color: '#000', // Default text color
+    fontSize: 18, // Adjust as needed
+    color: '#ffffff', // Default text color
     textAlign: 'center',
   },
-  highlighted: {
-    fontWeight: '600',
+  buttonContainer: {
+    alignItems: 'center',
+    padding: 40,
+  },
+  button: {
+    borderRadius: 5,
+    overflow: 'hidden', // Ensures gradient does not spill out of button
+  },
+  gradient: {
+    padding: 15,
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff', // Button text color
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
